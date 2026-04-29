@@ -1,70 +1,87 @@
-# ✈️ Airline Support Agent using LangGraph & Gemini API
+# ✈️ Onyx Airline AI Assistant: Intelligent Support Agent with LangGraph & Gemini API
 
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
-![Gemini API](https://img.shields.io/badge/Google-Gemini_API-orange)
+![Gemini API](https://img.shields.io/badge/Google-Gemini_1.5_Flash-orange)
 ![LangGraph](https://img.shields.io/badge/LangGraph-State_Agents-brightgreen)
 ![Jupyter Notebook](https://img.shields.io/badge/Jupyter-Notebook-F37626)
 
 ## 📖 About The Project
 
-This project implements an intelligent, state-driven **Airline Support Agent** designed to handle customer queries efficiently. Built using **LangGraph** for robust conversational routing and workflow management, and powered by **Google's Gemini API** for natural language understanding and generation. 
+In today's fast-paced world, exceptional customer service is more important than ever. The airline industry can benefit greatly from AI-powered solutions that streamline support processes and enhance the customer experience. 
 
-This notebook demonstrates how to build a production-ready AI agent that can logically route, process, and respond to various airline-related customer support scenarios (e.g., flight rebooking, cancellations, and general FAQs).
+This project is a sophisticated, simulated **Airline Support Agent (The Onyx Airline AI Assistant)** built using LangGraph and Google's Gemini API. It is designed to logically route, process, and respond to various airline-related customer support scenarios.
 
-🎓 **Context:** *This project was developed as part of the **Google Gen AI Intensive Course**, focusing on practical applications of Large Language Models (LLMs) and advanced agentic frameworks.*
+### ✨ The Vision: A Conversational AI Assistant
+This agent is capable of:
+*   **Searching for Flights:** Finding the best flight options based on origin, destination, dates, and passenger count.
+*   **Booking Flights:** Handling reservations, managing different travel classes (Economy and Business), and capturing essential passenger details.
+*   **Canceling Bookings:** Processing ticket cancellations, calculating appropriate refunds, and updating or removing bookings as needed.
 
-## ✨ Features
-* **Stateful Conversations:** Uses LangGraph to manage the conversational state, ensuring the agent remembers context across multi-turn interactions.
-* **Intelligent Routing:** Automatically classifies user intent and routes the query to the appropriate sub-agent or workflow (e.g., separating a refund request from a single passenger cancellation).
-* **Secure API Handling:** Includes robust API key management with built-in fallbacks for both Kaggle `UserSecrets` and local environment variables.
-* **Powered by Gemini:** Leverages the advanced reasoning capabilities of Google's Gemini models for highly accurate and empathetic customer responses.
+## 🛠️ Key Technologies & Capabilities
 
-## 🛠️ Tech Stack
-* **Language:** Python
-* **LLM:** Google Gemini API
-* **Agent Framework:** LangGraph / LangChain
-* **Environment:** Jupyter Notebook (Originally developed on Kaggle)
+To bring this vision to life, the project leverages several powerful technologies:
+*   **LangGraph:** A framework for building robust, stateful conversational agents.
+*   **Gemini API (`gemini-1.5-flash-latest`):** Google's cutting-edge language model offering a massive **1 million token context window**, allowing the agent to remember conversation history for natural, context-aware interactions.
+*   **Function Calling:** Allows the agent to seamlessly interact with simulated airline APIs by translating natural language into specific API calls.
+*   **Structured Output & JSON Mode:** Ensures precise data handling by utilizing tools that return structured JSON, efficiently processed by the agent.
+*   **Retrieval Augmented Generation (RAG):** Provides the agent with up-to-date real-world information (like airport codes) through web searches using `DuckDuckGoSearchRun`.
+
+## 🧠 System Architecture & Graph Design
+
+The core of the project relies on a highly structured State Machine constructed with LangGraph.
+
+### 1. State Management
+*   **`FlightBookingState`**: A `TypedDict` that stores all conversation data, including messages, search parameters, flight search results, booking references, passenger details, travel class, and control flow flags.
+
+### 2. Core Nodes
+*   **`chatbot_node`**: Main controller handling search, booking, and cancellation flows with LLM integration.
+*   **`collect_details_node`**: Sequentially collects passenger details and meal preferences.
+*   **`finalize_booking_node`**: Validates and prepares the flight booking tool call with cleaned passenger data.
+*   **`human_input_node`**: Gets and processes user input with quit/decline handling.
+*   **`execute_tools_node`**: Executes and validates tools (search/book/cancel flights, web search).
+
+### 3. Conditional Edge Routing
+Dynamic flow control functions (e.g., `route_after_chatbot`, `route_after_collect_details`, `route_after_human`) ensure the conversation routes smoothly between tools, detail collection, finalization, human input, and the end of the graph based on the user's current phase.
+
+## 💻 Simulated API Functions
+
+The agent interacts with a simulated backend using the following core Python tools:
+*   `search_flights_api()`: Simulates searching flights for specific travel classes and stores the base price.
+*   `book_flight_api()`: Simulates booking a flight, requires per-passenger details, and confirms pricing.
+*   `cancel_booking_api()`: Simulates cancelling tickets, calculates refunds based on booked class fare, and updates the system.
 
 ## 🚀 Getting Started
 
-To run this notebook locally or in your own cloud environment, follow these steps:
+To run this notebook locally or in your own cloud environment:
 
-### Prerequisites
-1. You will need a **Google Gemini API Key**. You can get one from [Google AI Studio](https://aistudio.google.com/).
-2. Python 3.8 or higher installed on your system.
-
-### Installation
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/YOUR_GITHUB_USERNAME/airline-support-agent.git
-   cd airline-support-agent
-   ```
-2. Install the required libraries. You can run this in your terminal or directly inside a notebook cell:
-
+### 1. Install Dependencies
 ```bash
-pip install langchain langgraph google-generativeai langchain-google-genai
+pip install langchain langgraph google-generativeai requests pydantic duckduckgo-search
 ```
 
-## Running the Notebook
+### 2. Set Up Your API Key
+The code safely prioritizes Kaggle Secrets but falls back to environment variables. Set your Gemini API key locally:
+*   **Windows:** `set GOOGLE_API_KEY="your_api_key_here"`
+*   **Mac/Linux:** `export GOOGLE_API_KEY="your_api_key_here"`
 
-* Set up your API key as an environment variable.
-* On Windows: set GOOGLE_API_KEY="your_api_key_here"
-* On Mac/Linux: export GOOGLE_API_KEY="your_api_key_here"
-* (Alternatively, you can create a .env file if you are using python-dotenv).
-* Open the Jupyter Notebook:
-```bash
-jupyter notebook "airline-support-agent-using-langgraph-gemini-api.ipynb"
+### 3. Run the Notebook
+Open `Airline_Support_Agent.ipynb` in Jupyter Notebook or JupyterLab and run the cells sequentially to start chatting with the Onyx Airline AI Assistant.
+
+## 🌐 View on Kaggle & Read the Blog
+
+*   **Hands-on Execution:** You can run the notebook directly in your browser, modify the code, and see how different parameters affect the results with zero setup on Kaggle: 
+    👉 **[Airline Support Agent on Kaggle](https://www.kaggle.com/code/rupajiet/airline-support-agent-using-langgraph-gemini-api)**
+*   **Detailed Walkthrough:** Read the full article documenting the creation of this project here: 
+    👉 **[Building an Intelligent Airline Support Agent Blog Post](https://geminiagent.blogspot.com/2025/04/building-intelligent-airline-support.html)**
+
+## 🧗 Challenges & Lessons Learned
+*   **State Management:** Properly managing the conversation state within LangGraph was crucial for maintaining context and ensuring smooth transitions between different phases.
+*   **Error Handling:** Implementing robust error handling was essential for gracefully dealing with invalid user input and unexpected API responses.
+*   **Tool Design:** Carefully designing the tools and their descriptions was important for guiding the LLM to use them effectively.
+
+## 🔮 Next Steps & Future Improvements
+*   **Real-World API Integration:** Connecting the agent to real-world airline APIs.
+*   **More Sophisticated NLP:** Improving the agent's ability to understand complex requests.
+*   **Enhanced Error Recovery:** Making the agent more resilient to unexpected issues.
+*   **Multilingual Support & Personalization:** Broadening reach and personalizing responses based on past interactions.
 ```
-* Run the cells sequentially. The code is designed to automatically detect your environment variables and configure the Gemini API securely.
-
-🌐 View on Kaggle
-
-If you'd like to see the original execution environment or run it with zero setup, you can view the original Kaggle notebook here:
-
-👉 [Airline Support Agent on Kaggle](https://www.google.com/url?sa=E&q=https%3A%2F%2Fwww.kaggle.com%2Fcode%2Frupajiet%2Fairline-support-agent-using-langgraph-gemini-api)
-
-🤝 Acknowledgments
-
-* **Google Gen AI Intensive Course Capstone 2025 Q1** for the foundational knowledge and project inspiration.
-* **Kaggle** for providing the original computing environment.
-* The maintainers of LangChain and LangGraph for their incredible agentic frameworks.
