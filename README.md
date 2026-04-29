@@ -69,7 +69,3 @@ If you'd like to see the original execution environment or run it with zero setu
 * **Google Gen AI Intensive Course Capstone 2025 Q1** for the foundational knowledge and project inspiration.
 * **Kaggle** for providing the original computing environment.
 * The maintainers of LangChain and LangGraph for their incredible agentic frameworks.
-
-```bash
-*(Note: Don't forget to replace `YOUR_GITHUB_USERNAME` in the "Installation" section with your actual GitHub username after you paste it!)*
-```
