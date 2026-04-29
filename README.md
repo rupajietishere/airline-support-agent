@@ -51,13 +51,11 @@ pip install langchain langgraph google-generativeai langchain-google-genai
 * On Windows: set GOOGLE_API_KEY="your_api_key_here"
 * On Mac/Linux: export GOOGLE_API_KEY="your_api_key_here"
 * (Alternatively, you can create a .env file if you are using python-dotenv).
-  
-Open the Jupyter Notebook:
-
+* Open the Jupyter Notebook:
 ```bash
 jupyter notebook "airline-support-agent-using-langgraph-gemini-api.ipynb"
 ```
-Run the cells sequentially. The code is designed to automatically detect your environment variables and configure the Gemini API securely.
+* Run the cells sequentially. The code is designed to automatically detect your environment variables and configure the Gemini API securely.
 
 🌐 View on Kaggle
 
