@@ -55,13 +55,14 @@ pip install langchain langgraph google-generativeai langchain-google-genai
 Open the Jupyter Notebook:
 
 ```bash
-jupyter notebook "Airline_Support_Agent.ipynb"
+jupyter notebook "airline-support-agent-using-langgraph-gemini-api.ipynb"
 ```
 Run the cells sequentially. The code is designed to automatically detect your environment variables and configure the Gemini API securely.
 
 🌐 View on Kaggle
 
 If you'd like to see the original execution environment or run it with zero setup, you can view the original Kaggle notebook here:
+
 👉 [Airline Support Agent on Kaggle](https://www.google.com/url?sa=E&q=https%3A%2F%2Fwww.kaggle.com%2Fcode%2Frupajiet%2Fairline-support-agent-using-langgraph-gemini-api)
 
 🤝 Acknowledgments
