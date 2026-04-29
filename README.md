@@ -45,33 +45,30 @@ To run this notebook locally or in your own cloud environment, follow these step
 pip install langchain langgraph google-generativeai langchain-google-genai
 ```
 
-##Running the Notebook
-Set up your API key as an environment variable.
-On Windows: set GOOGLE_API_KEY="your_api_key_here"
-On Mac/Linux: export GOOGLE_API_KEY="your_api_key_here"
-(Alternatively, you can create a .env file if you are using python-dotenv).
+## Running the Notebook
+
+* Set up your API key as an environment variable.
+* On Windows: set GOOGLE_API_KEY="your_api_key_here"
+* On Mac/Linux: export GOOGLE_API_KEY="your_api_key_here"
+* (Alternatively, you can create a .env file if you are using python-dotenv).
+  
 Open the Jupyter Notebook:
-   ```bash
+
+```bash
 jupyter notebook "Airline_Support_Agent.ipynb"
 ```
 Run the cells sequentially. The code is designed to automatically detect your environment variables and configure the Gemini API securely.
 
 🌐 View on Kaggle
+
 If you'd like to see the original execution environment or run it with zero setup, you can view the original Kaggle notebook here:
-👉 Airline Support Agent on Kaggle
+👉 [Airline Support Agent on Kaggle](https://www.google.com/url?sa=E&q=https%3A%2F%2Fwww.kaggle.com%2Fcode%2Frupajiet%2Fairline-support-agent-using-langgraph-gemini-api)
 
 🤝 Acknowledgments
-Google Gen AI Intensive Course for the foundational knowledge and project inspiration.
-Kaggle for providing the original computing environment.
-The maintainers of LangChain and LangGraph for their incredible agentic frameworks.
-How to add this to your GitHub Repository:
-Go to your repository on GitHub.
-Click the Add file button, then select Create new file.
-Name the file exactly: README.md
-Paste the markdown code above into the text box.
-Important: Make sure to replace YOUR_GITHUB_USERNAME in the "Installation" section with your actual GitHub username!
-Click Commit changes at the top right.
-This will instantly create a beautiful homepage for your project that recruiters and other developers can easily read!
+
+* **Google Gen AI Intensive Course** for the foundational knowledge and project inspiration.
+* **Kaggle** for providing the original computing environment.
+* The maintainers of LangChain and LangGraph for their incredible agentic frameworks.
 
 ```bash
 *(Note: Don't forget to replace `YOUR_GITHUB_USERNAME` in the "Installation" section with your actual GitHub username after you paste it!)*
