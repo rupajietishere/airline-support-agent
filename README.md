@@ -9,13 +9,13 @@
 
 This project implements an intelligent, state-driven **Airline Support Agent** designed to handle customer queries efficiently. Built using **LangGraph** for robust conversational routing and workflow management, and powered by **Google's Gemini API** for natural language understanding and generation. 
 
-This notebook demonstrates how to build a production-ready AI agent that can logically route, process, and respond to various airline-related customer support scenarios (e.g., baggage claims, flight rebooking, cancellations, and general FAQs).
+This notebook demonstrates how to build a production-ready AI agent that can logically route, process, and respond to various airline-related customer support scenarios (e.g., flight rebooking, cancellations, and general FAQs).
 
 🎓 **Context:** *This project was developed as part of the **Google Gen AI Intensive Course**, focusing on practical applications of Large Language Models (LLMs) and advanced agentic frameworks.*
 
 ## ✨ Features
 * **Stateful Conversations:** Uses LangGraph to manage the conversational state, ensuring the agent remembers context across multi-turn interactions.
-* **Intelligent Routing:** Automatically classifies user intent and routes the query to the appropriate sub-agent or workflow (e.g., separating a refund request from a baggage inquiry).
+* **Intelligent Routing:** Automatically classifies user intent and routes the query to the appropriate sub-agent or workflow (e.g., separating a refund request from a single passenger cancellation).
 * **Secure API Handling:** Includes robust API key management with built-in fallbacks for both Kaggle `UserSecrets` and local environment variables.
 * **Powered by Gemini:** Leverages the advanced reasoning capabilities of Google's Gemini models for highly accurate and empathetic customer responses.
 
