@@ -66,7 +66,7 @@ If you'd like to see the original execution environment or run it with zero setu
 
 🤝 Acknowledgments
 
-* **Google Gen AI Intensive Course** for the foundational knowledge and project inspiration.
+* **Google Gen AI Intensive Course Capstone 2025 Q1** for the foundational knowledge and project inspiration.
 * **Kaggle** for providing the original computing environment.
 * The maintainers of LangChain and LangGraph for their incredible agentic frameworks.
 
