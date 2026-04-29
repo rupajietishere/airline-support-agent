@@ -65,7 +65,7 @@ The code safely prioritizes Kaggle Secrets but falls back to environment variabl
 *   **Mac/Linux:** `export GOOGLE_API_KEY="your_api_key_here"`
 
 ### 3. Run the Notebook
-Open `Airline_Support_Agent.ipynb` in Jupyter Notebook or JupyterLab and run the cells sequentially to start chatting with the Onyx Airline AI Assistant.
+Open `airline-support-agent-using-langgraph-gemini-api.ipynb` in Jupyter Notebook or JupyterLab and run the cells sequentially to start chatting with the Onyx Airline AI Assistant.
 
 ## 🌐 View on Kaggle & Read the Blog
 
